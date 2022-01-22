@@ -18,9 +18,9 @@
 
 <script>
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
-import EditorToolbar from "./EditorToolbar";
+import EditorToolbar from "./toolbar";
 export default {
-  name: "MonacoEditor",
+  name: "dgiotMonaco",
   components: {
     EditorToolbar,
   },
@@ -44,16 +44,16 @@ export default {
   }
 \<\/style\>
 \<template\>
-  \<div class="content"\>
-    \<VueMonacoEditorPro ref="monacoEditor" :content="content" :language="language" :theme="theme" width="100%" height="100%" \/\>
+  \<div class="dgiot-monaco"\>
+    \<dgiot-monaco ref="dgiotMonaco" :content="content" :language="language" :theme="theme" width="100%" height="100%" \/\>
   \<\/div\>
 \<\/template\>
 
 \<script\>
-  import VueMonacoEditorPro from "vue-monaco-editor-pro"; 
+  import dgiotMonaco from "@dgiot/dgiot-monaco";
   export default {
     components: {
-      VueMonacoEditorPro
+      dgiotMonaco
     },
     data() {
       return {
@@ -165,49 +165,109 @@ export default {
       } else monaco.editor.setModelLanguage(this.editor.getModel(), val);
     },
     handleToolClick({ type, value }) {
+      console.log(type, value);
       // console.log(type, value);
-      if (type === "undo") {
-        //上一步
-        this.editor.trigger("anyString", "undo");
-      } else if (type === "repeat") {
-        //下一步
-        this.editor.trigger("anyString", "redo");
-      } else if (type === "search") {
-        //检索
-        // this.editor.trigger("anyString", "editor.action.selectAll");
-        this.editor.trigger("anyString", "actions.find");
-      } else if (type === "formatDocument") {
-        //代码美化
-        this.editor.trigger("anyString", "editor.action.formatDocument");
-      } else if (type === "size") {
-        //编辑器字体
-        this.options.fontSize = value;
-      } else if (type === "theme") {
-        //编辑器主题
-        this.handleTheme(value);
-      } else if (type === "language") {
-        //语言
-        this.handlerLanguage(value);
-      } else if (type === "trash") {
-        //清空
-        // this.editor.setValue("");
-        this.handleValue("");
-      } else if (type === "save") {
-        //保存
-        this.$emit("on-save", this.editor.getValue());
-      } else if (type === "wrap") {
-        //代码换行
-        this.options.wordWrap = !this.options.wordWrap;
-      } else if (type === "number") {
-        //行号显隐
-        this.options.lineNumbers = !this.options.lineNumbers;
-      } else if (type === "random") {
-        //跳转到行
-        this.editor.trigger("anyString", "editor.action.gotoLine");
-      } else if (type === "format") {
-        //代码美化
-        this.editor.trigger("anyString", "editor.action.formatDocument");
+      switch(type)
+      {
+        case 'undo':
+          //上一步
+          this.editor.trigger("anyString", "undo");
+          break;
+        case 'repeat':
+          //下一步
+          this.editor.trigger("anyString", "redo");
+          break;
+        case 'search':
+            //检索
+          //   // this.editor.trigger("anyString", "editor.action.selectAll");
+            this.editor.trigger("anyString", "actions.find");
+          break;
+        case 'formatDocument':
+          //代码美化
+            this.editor.trigger("anyString", "editor.action.formatDocument");
+          break;
+        case 'size':
+            //编辑器字体
+            this.options.fontSize = value;
+          break;
+        case 'theme':
+//编辑器主题
+          //   this.handleTheme(value);
+          break;
+        case 'language':
+//语言
+            this.handlerLanguage(value);
+          break;
+        case 'trash':
+//清空
+          this.handleValue("");
+          break;
+        case 'save':
+          // 保存
+          this.$emit("on-save", this.editor.getValue());
+          break;
+        case 'wrap':
+          //代码换行
+          //   this.options.wordWrap = !this.options.wordWrap;
+          break;
+        case 'number':
+          //行号显隐
+          //   this.options.lineNumbers = !this.options.lineNumbers;
+          break;
+        case 'random':
+          //跳转到行
+            this.editor.trigger("anyString", "editor.action.gotoLine");
+          break;
+        case 'save':
+          //format
+          //   this.editor.trigger("anyString", "editor.action.formatDocument");
+          break;
+        default:
+          console.log(type)
       }
+      // if (type === "undo") {
+      //   //上一步
+      //   this.editor.trigger("anyString", "undo");
+      // } else if (type === "repeat") {
+      //   //下一步
+      //   this.editor.trigger("anyString", "redo");
+      // } else if (type === "search") {
+      //   //检索
+      //   // this.editor.trigger("anyString", "editor.action.selectAll");
+      //   this.editor.trigger("anyString", "actions.find");
+      // } else if (type === "formatDocument") {
+      //   //代码美化
+      //   this.editor.trigger("anyString", "editor.action.formatDocument");
+      // } else if (type === "size") {
+      //   //编辑器字体
+      //   this.options.fontSize = value;
+      // } else if (type === "theme") {
+      //   //编辑器主题
+      //   this.handleTheme(value);
+      // } else if (type === "language") {
+      //   //语言
+      //   this.handlerLanguage(value);
+      // } else if (type === "trash") {
+      //   //清空
+      //   // this.editor.setValue("");
+      //   this.handleValue("");
+      // } else if (type === "save") {
+      //   //保存
+      //   this.$emit("on-save", this.editor.getValue());
+      //   console.log(this.editor.getValue());
+      // } else if (type === "wrap") {
+      //   //代码换行
+      //   this.options.wordWrap = !this.options.wordWrap;
+      // } else if (type === "number") {
+      //   //行号显隐
+      //   this.options.lineNumbers = !this.options.lineNumbers;
+      // } else if (type === "random") {
+      //   //跳转到行
+      //   this.editor.trigger("anyString", "editor.action.gotoLine");
+      // } else if (type === "format") {
+      //   //代码美化
+      //   this.editor.trigger("anyString", "editor.action.formatDocument");
+      // }
     },
 
     initMonaco() {

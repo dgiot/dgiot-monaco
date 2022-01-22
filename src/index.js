@@ -10,6 +10,6 @@ window.onkeydown = function (e) {
         return false;
     }
 };
-import MonaceEditor from './components/MonacoEditor.vue';
-export default MonaceEditor;
+import dgiotMonaco from './components/dgiotMonaco.vue';
+export default dgiotMonaco;
 

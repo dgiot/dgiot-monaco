@@ -1,35 +1,35 @@
-# vue-monaco-editor-pro
+# dgiot-monaco
 
-`vue-monaco-editor-pro` 是基于 `Monaco editor` 开发的简易版 `web` 端代码编辑器 `Vue` 组件。如在使用中若遇到问题可以提交 issues 。
+`dgiot-monaco` 是基于 `Monaco editor` 开发的简易版 `web` 端代码编辑器 `Vue` 组件。如在使用中若遇到问题可以提交 issues 。
 
 ## 预览图 
 ![预览图](./demo.png)
 
 ## 安装
 ```bash
-npm install vue-monaco-editor-pro --save
+pnpm add @dgiot/dgiot-monaco
 ```
 
 ## 快速使用
 
 ```html
 <style lang="scss" scoped>
-  .content{
+  .dgiot-monaco{
     height:100%;
     width: 100%;
   }
 </style>
 <template>
-  <div class="content">
-    <VueMonacoEditorPro ref="monacoEditor" :content="content" :language="language" :theme="theme" width="100%" height="100%" />
+  <div class="dgiot-monaco">
+    <dgiot-monaco ref="dgiotMonaco" :content="content" :language="language" :theme="theme" width="100%" height="100%" />
   </div>
 </template>
 
 <script>
-  import VueMonacoEditorPro from "vue-monaco-editor-pro"; 
+  import dgiotMonaco from "@dgiot/dgiot-monaco"; 
   export default {
     components: {
-      VueMonacoEditorPro
+        dgiotMonaco
     },
     data() {
       return {

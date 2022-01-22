@@ -2,13 +2,13 @@
   <div class="editor-tool-bar">
     <div class="editor-toolbar-left">
       <ul>
-        <li @click="handleSelect('undo')"><i class="fa fa-undo"></i></li>
-        <li @click="handleSelect('repeat')"><i class="fa fa-repeat"></i></li>
+        <li @click="handleSelect('undo')"><i class="fa fa-undo" title="撤销"></i></li>
+        <li @click="handleSelect('repeat')"><i class="fa fa-repeat" title="重做"></i></li>
         <li class="disable">|</li>
 
-        <!-- <li @click="handleSelect('random')"><i class="fa fa-random"></i></li> -->
-        <li @click="handleSelect('number')"><i class="fa fa-outdent"></i></li>
-        <li>
+<!--         <li @click="handleSelect('random')"><i class="fa fa-random" title="跳转"></i></li>-->
+        <li @click="handleSelect('number')"><i class="fa fa-outdent" title="行号"></i></li>
+        <li title="字体">
           <span
             @click="
               closeOpen();
@@ -29,7 +29,7 @@
             </li>
           </ol>
         </li>
-        <li>
+        <li title="主题">
           <span
             @click="
               closeOpen();
@@ -50,7 +50,7 @@
             </li>
           </ol>
         </li>
-        <li>
+        <li title="语言">
           <span
             @click="
               closeOpen();
@@ -71,12 +71,12 @@
             </li>
           </ol>
         </li>
-        <li @click="handleSelect('wrap')"><i class="fa fa-exchange"></i></li>
+        <li @click="handleSelect('wrap')"><i class="fa fa-exchange" title="换行"></i></li>
         <li class="disable">|</li>
-        <li @click="handleSelect('format')"><i class="fa fa-wpforms"></i></li>
-        <li @click="handleSelect('trash')"><i class="fa fa-trash"></i></li>
-        <li @click="handleSelect('search')"><i class="fa fa-search"></i></li>
-        <li @click="handleSelect('save')" ><i class="fa fa-save"></i></li>
+        <li @click="handleSelect('format')"><i class="fa fa-wpforms" title="格式化"></i></li>
+        <li @click="handleSelect('trash')"><i class="fa fa-trash" title="删除"></i></li>
+        <li @click="handleSelect('search')"><i class="fa fa-search" title="搜索"></i></li>
+        <li @click="handleSelect('save')" ><i class="fa fa-save" title="保存"></i></li>
       </ul>
       <div
         v-if="isOpenSize || isOpenTheme || isOpenLanguage"
@@ -98,7 +98,7 @@ export default {
       isOpenLanguage: false,
       size: 12,
       // theme: "",
-      language: "",
+      // language: "",
       fontSize: [12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36],
       themeArr: [
         // {
@@ -122,9 +122,11 @@ export default {
     };
   },
   props: ["options", "language", "languageModal","theme"],
+  created() {
+  },
   mounted() {
     this.size = this.options.fontSize;
-    this.theme = this.options.theme;
+    this.theme = this.options.theme ?? 'vs-dark';
   },
   methods: {
     closeOpen() {
@@ -141,7 +143,11 @@ export default {
       this.closeOpen();
     },
     handleSelectTheme(item) {
-      this.theme = item.mark;
+      /**
+       * @todo 0.1.7解决 主题切换报错
+       * @error Avoid mutating a prop directly since the value will be overwritten whenever
+       */
+      // this.theme = item.mark;
       this.$emit("on-click", { type: "theme", value: item.mark });
       this.closeOpen();
     },

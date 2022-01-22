@@ -1,7 +1,9 @@
 {
-  "name": "vue-monaco-editor-pro",
+  "name": "@dgiot/dgiot-monaco",
+  "author": "iotn2n",
+  "license": "MPL-2.0",
   "version": "0.1.6",
-  "description": "vue-monaco-editor-pro 是基于 Monaco editor 开发的简易版 web 端代码编辑器 Vue 组件。",
+  "description": "@dgiot/dgiot-monaco 是基于 Monaco editor 开发的简易版 web 端代码编辑器 Vue 组件。",
   "private": false,
   "main": "src/index.js",
   "scripts": {
@@ -12,8 +14,8 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
-    "monaco-editor": "^0.24.0",
-    "monaco-editor-webpack-plugin": "^3.1.0",
+    "monaco-editor": "^0.30.1",
+    "monaco-editor-webpack-plugin": "6.0.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -23,13 +25,14 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2",
+    "sass": "~1.32.13",
+    "sass-loader": "^10.2.0",
+    "webpack": "4.46.0",
     "vue-template-compiler": "^2.6.11"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zlluGitHub/vue-monaco-editor-pro.git"
+    "url": "https://github.com/dgiot/dgiot-monaco.git"
   },
   "keywords": [
     "editor",
@@ -38,12 +41,12 @@
     "monaco-editor",
     "code"
   ],
-  "author": "zlluGitHub",
+  "author": "dgiot",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zlluGitHub/vue-monaco-editor-pro/issues"
+    "url": "https://github.com/dgiot/dgiot-monaco/issues"
   },
-  "homepage": "https://github.com/zlluGitHub/vue-monaco-editor-pro#readme",
+  "homepage": "https://github.com/dgiot/dgiot-monaco#readme",
   "eslintConfig": {
     "root": true,
     "env": {
