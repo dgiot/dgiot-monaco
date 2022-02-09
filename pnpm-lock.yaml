@@ -9,7 +9,7 @@ specifiers:
   eslint: ^6.7.2
   eslint-plugin-vue: ^6.2.2
   font-awesome: ^4.7.0
-  monaco-editor: ^0.20.0
+  monaco-editor: ^0.20
   monaco-editor-esm-webpack-plugin: ^2.0.0
   monaco-editor-nls: ^2.0.0
   monaco-editor-webpack-plugin: ^1.9.1
