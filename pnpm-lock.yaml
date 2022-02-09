@@ -9,8 +9,10 @@ specifiers:
   eslint: ^6.7.2
   eslint-plugin-vue: ^6.2.2
   font-awesome: ^4.7.0
-  monaco-editor: ^0.30.1
-  monaco-editor-webpack-plugin: 6.0.0
+  monaco-editor: ^0.20.0
+  monaco-editor-esm-webpack-plugin: ^2.0.0
+  monaco-editor-nls: ^2.0.0
+  monaco-editor-webpack-plugin: ^1.9.1
   sass: ~1.32.13
   sass-loader: ^10.2.0
   vue: ^2.6.11
@@ -20,8 +22,9 @@ specifiers:
 dependencies:
   core-js: 3.20.3
   font-awesome: 4.7.0
-  monaco-editor: 0.30.1
-  monaco-editor-webpack-plugin: 6.0.0_e4146de625aad8e6c67af0b29262186e
+  monaco-editor: 0.20.0
+  monaco-editor-nls: 2.0.0
+  monaco-editor-webpack-plugin: 1.9.1_fb2b3ea1fd7aeb1a6ee9865e4912de49
   vue: 2.6.14
 
 devDependencies:
@@ -31,6 +34,7 @@ devDependencies:
   babel-eslint: 10.1.0_eslint@6.8.0
   eslint: 6.8.0
   eslint-plugin-vue: 6.2.2_eslint@6.8.0
+  monaco-editor-esm-webpack-plugin: 2.0.0_05d4df89c4a02641af913531d55a361f
   sass: 1.32.13
   sass-loader: 10.2.1_sass@1.32.13+webpack@4.46.0
   vue-template-compiler: 2.6.14
@@ -2009,14 +2013,14 @@ packages:
     dev: true
 
   /ansi-styles/3.2.1:
-    resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==, tarball: ansi-styles/download/ansi-styles-3.2.1.tgz}
+    resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==}
     engines: {node: '>=4'}
     dependencies:
       color-convert: 1.9.3
     dev: true
 
   /ansi-styles/4.3.0:
-    resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==, tarball: ansi-styles/download/ansi-styles-4.3.0.tgz}
+    resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
     engines: {node: '>=8'}
     dependencies:
       color-convert: 2.0.1
@@ -2294,11 +2298,11 @@ packages:
     dev: true
 
   /big.js/3.2.0:
-    resolution: {integrity: sha1-pfwpi4G54Nyi5FiCR4S2XFK6WI4=, tarball: big.js/download/big.js-3.2.0.tgz}
+    resolution: {integrity: sha512-+hN/Zh2D08Mx65pZ/4g5bsmNiZUuChDiQfTUQ7qJr4/kuopCr88xZsAXv6mBoZEsUI4OuGHlX59qE94K2mMW8Q==}
     dev: true
 
   /big.js/5.2.2:
-    resolution: {integrity: sha1-ZfCvOC9Xi83HQr2cKB6cstd2gyg=, tarball: big.js/download/big.js-5.2.2.tgz}
+    resolution: {integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==}
 
   /binary-extensions/1.13.1:
     resolution: {integrity: sha1-WYr+VHVbKGilMw0q/51Ou1Mgm2U=, tarball: binary-extensions/download/binary-extensions-1.13.1.tgz}
@@ -2311,7 +2315,7 @@ packages:
     dev: true
 
   /bindings/1.5.0:
-    resolution: {integrity: sha1-EDU8npRTNLwFEabZCzj7x8nFBN8=, tarball: bindings/download/bindings-1.5.0.tgz}
+    resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
     requiresBuild: true
     dependencies:
       file-uri-to-path: 1.0.0
@@ -2642,7 +2646,7 @@ packages:
     dev: true
 
   /chalk/4.1.2:
-    resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==, tarball: chalk/download/chalk-4.1.2.tgz}
+    resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
     dependencies:
       ansi-styles: 4.3.0
@@ -2821,24 +2825,24 @@ packages:
     dev: true
 
   /color-convert/1.9.3:
-    resolution: {integrity: sha1-u3GFBpDh8TZWfeYp0tVHHe2kweg=, tarball: color-convert/download/color-convert-1.9.3.tgz}
+    resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
       color-name: 1.1.3
     dev: true
 
   /color-convert/2.0.1:
-    resolution: {integrity: sha1-ctOmjVmMm9s68q0ehPIdiWq9TeM=, tarball: color-convert/download/color-convert-2.0.1.tgz}
+    resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
     dependencies:
       color-name: 1.1.4
     dev: true
 
   /color-name/1.1.3:
-    resolution: {integrity: sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=, tarball: color-name/download/color-name-1.1.3.tgz}
+    resolution: {integrity: sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=}
     dev: true
 
   /color-name/1.1.4:
-    resolution: {integrity: sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=, tarball: color-name/download/color-name-1.1.4.tgz}
+    resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: true
 
   /color-string/1.9.0:
@@ -3606,12 +3610,12 @@ packages:
     dev: true
 
   /emojis-list/2.1.0:
-    resolution: {integrity: sha1-TapNnbAPmBmIDHn6RXrlsJof04k=, tarball: emojis-list/download/emojis-list-2.1.0.tgz}
+    resolution: {integrity: sha1-TapNnbAPmBmIDHn6RXrlsJof04k=}
     engines: {node: '>= 0.10'}
     dev: true
 
   /emojis-list/3.0.0:
-    resolution: {integrity: sha1-VXBmIEatKeLpFucariYKvf9Pang=, tarball: emojis-list/download/emojis-list-3.0.0.tgz}
+    resolution: {integrity: sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==}
     engines: {node: '>= 4'}
 
   /encodeurl/1.0.2:
@@ -4086,7 +4090,7 @@ packages:
     dev: true
 
   /file-uri-to-path/1.0.0:
-    resolution: {integrity: sha1-VTp7hEb/b2hDWcRF8eN6BdrMM90=, tarball: file-uri-to-path/download/file-uri-to-path-1.0.0.tgz}
+    resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
     requiresBuild: true
     dev: true
     optional: true
@@ -4278,7 +4282,7 @@ packages:
     dev: true
 
   /fsevents/1.2.13:
-    resolution: {integrity: sha1-8yXLBFVZJCi88Rs4M3DvcOO/zDg=, tarball: fsevents/download/fsevents-1.2.13.tgz}
+    resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
     deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
@@ -4290,7 +4294,7 @@ packages:
     optional: true
 
   /fsevents/2.3.2:
-    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=, tarball: fsevents/download/fsevents-2.3.2.tgz}
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -4474,12 +4478,12 @@ packages:
     dev: true
 
   /has-flag/3.0.0:
-    resolution: {integrity: sha1-tdRU3CGZriJWmfNGfloH87lVuv0=, tarball: has-flag/download/has-flag-3.0.0.tgz}
+    resolution: {integrity: sha1-tdRU3CGZriJWmfNGfloH87lVuv0=}
     engines: {node: '>=4'}
     dev: true
 
   /has-flag/4.0.0:
-    resolution: {integrity: sha1-lEdx/ZyByBJlxNaUGGDaBrtZR5s=, tarball: has-flag/download/has-flag-4.0.0.tgz}
+    resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
     dev: true
 
@@ -5313,23 +5317,23 @@ packages:
     dev: true
 
   /json5/0.5.1:
-    resolution: {integrity: sha512-4xrs1aW+6N5DalkqSVA8fxh458CXvR99WU8WLKmq4v8eWAL86Xo3BVqyd3SkA9wEVjCMqyvvRRkshAdOnBp5rw==, tarball: json5/download/json5-0.5.1.tgz}
+    resolution: {integrity: sha1-Hq3nrMASA0rYTiOWdn6tn6VJWCE=}
     hasBin: true
     dev: true
 
   /json5/1.0.1:
-    resolution: {integrity: sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==, tarball: json5/download/json5-1.0.1.tgz}
+    resolution: {integrity: sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==}
     hasBin: true
     dependencies:
       minimist: 1.2.5
-    dev: true
 
   /json5/2.2.0:
-    resolution: {integrity: sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==, tarball: json5/download/json5-2.2.0.tgz}
+    resolution: {integrity: sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==}
     engines: {node: '>=6'}
     hasBin: true
     dependencies:
       minimist: 1.2.5
+    dev: true
 
   /jsonfile/4.0.0:
     resolution: {integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=, tarball: jsonfile/download/jsonfile-4.0.0.tgz}
@@ -5418,7 +5422,7 @@ packages:
     dev: true
 
   /loader-utils/0.2.17:
-    resolution: {integrity: sha1-+G5jdNQyBabmxg6RlvF8Apm/s0g=, tarball: loader-utils/download/loader-utils-0.2.17.tgz}
+    resolution: {integrity: sha1-+G5jdNQyBabmxg6RlvF8Apm/s0g=}
     dependencies:
       big.js: 3.2.0
       emojis-list: 2.1.0
@@ -5427,21 +5431,21 @@ packages:
     dev: true
 
   /loader-utils/1.4.0:
-    resolution: {integrity: sha1-xXm140yzSxp07cbB+za/o3HVphM=, tarball: loader-utils/download/loader-utils-1.4.0.tgz}
+    resolution: {integrity: sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==}
     engines: {node: '>=4.0.0'}
     dependencies:
       big.js: 5.2.2
       emojis-list: 3.0.0
       json5: 1.0.1
-    dev: true
 
   /loader-utils/2.0.2:
-    resolution: {integrity: sha1-1uO0+4GHByGuTghoqxHdY4NowSk=, tarball: loader-utils/download/loader-utils-2.0.2.tgz}
+    resolution: {integrity: sha512-TM57VeHptv569d/GKh6TAYdzKblwDNiumOdkFnejjD0XwTH87K90w3O7AiJRqdQoXygvi1VQTJTLGhJl7WqA7A==}
     engines: {node: '>=8.9.0'}
     dependencies:
       big.js: 5.2.2
       emojis-list: 3.0.0
       json5: 2.2.0
+    dev: true
 
   /locate-path/3.0.0:
     resolution: {integrity: sha1-2+w7OrdZdYBxtY/ln8QYca8hQA4=, tarball: locate-path/download/locate-path-3.0.0.tgz}
@@ -5710,7 +5714,7 @@ packages:
     dev: true
 
   /minimist/1.2.5:
-    resolution: {integrity: sha1-Z9ZgFLZqaoqqDAg8X9WN9OTpdgI=, tarball: minimist/download/minimist-1.2.5.tgz}
+    resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
 
   /minipass/3.1.6:
     resolution: {integrity: sha512-rty5kpw9/z8SX9dmxblFA6edItUmwJgMeYDZRrwlIVN27i8gysGbznJwUggw2V/FVqFSDdWy040ZPS811DYAqQ==, tarball: minipass/download/minipass-3.1.6.tgz}
@@ -5750,19 +5754,37 @@ packages:
       minimist: 1.2.5
     dev: true
 
-  /monaco-editor-webpack-plugin/6.0.0_e4146de625aad8e6c67af0b29262186e:
-    resolution: {integrity: sha1-YolWzhhRr6Kl9siNDsuyTppESJg=, tarball: monaco-editor-webpack-plugin/download/monaco-editor-webpack-plugin-6.0.0.tgz}
+  /monaco-editor-esm-webpack-plugin/2.0.0_05d4df89c4a02641af913531d55a361f:
+    resolution: {integrity: sha512-vpReewx94mdeql5J4/3pDZJGg8cTPlETKZLFkwLOQOWUArJ2PdHO6p0TwF51Ixb1lJ1Oj+fSBkXC8SfDG/ecAQ==}
     peerDependencies:
-      monaco-editor: 0.30.x
-      webpack: ^4.5.0 || 5.x
+      monaco-editor: '*'
+      monaco-editor-nls: '*'
+      monaco-editor-webpack-plugin: '*'
+      webpack: 4.x
     dependencies:
-      loader-utils: 2.0.2
-      monaco-editor: 0.30.1
+      monaco-editor: 0.20.0
+      monaco-editor-nls: 2.0.0
+      monaco-editor-webpack-plugin: 1.9.1_fb2b3ea1fd7aeb1a6ee9865e4912de49
+      webpack: 4.46.0
+    dev: true
+
+  /monaco-editor-nls/2.0.0:
+    resolution: {integrity: sha512-gQy0LxyUkvmGFRfjRaFHFDdv3UjCX2DfjoL4Dy6mhcq94r6pu2mzcCWIxJz+y7FCrQwpj+xXXUpy0ynOrmONoQ==}
+    dev: false
+
+  /monaco-editor-webpack-plugin/1.9.1_fb2b3ea1fd7aeb1a6ee9865e4912de49:
+    resolution: {integrity: sha512-x7fx1w3i/uwZERIgztHAAK3VQMsL8+ku0lFXXbO81hKDg8IieACqjGEa2mqEueg0c/fX+wd0oI+75wB19KJAsA==}
+    peerDependencies:
+      monaco-editor: 0.19.x || 0.20.x
+      webpack: ^4.5.0
+    dependencies:
+      loader-utils: 1.4.0
+      monaco-editor: 0.20.0
       webpack: 4.46.0
     dev: false
 
-  /monaco-editor/0.30.1:
-    resolution: {integrity: sha512-B/y4+b2O5G2gjuxIFtCE2EkM17R2NM7/3F8x0qcPsqy4V83bitJTIO4TIeZpYlzu/xy6INiY/+84BEm6+7Cmzg==, tarball: monaco-editor/download/monaco-editor-0.30.1.tgz}
+  /monaco-editor/0.20.0:
+    resolution: {integrity: sha512-hkvf4EtPJRMQlPC3UbMoRs0vTAFAYdzFQ+gpMb8A+9znae1c43q8Mab9iVsgTcg/4PNiLGGn3SlDIa8uvK1FIQ==}
     dev: false
 
   /move-concurrently/1.0.1:
@@ -5813,7 +5835,7 @@ packages:
     dev: true
 
   /nan/2.15.0:
-    resolution: {integrity: sha1-PzSkc/8Y4VwbVia2KQO1rW5mX+4=, tarball: nan/download/nan-2.15.0.tgz}
+    resolution: {integrity: sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==}
     requiresBuild: true
     dev: true
     optional: true
@@ -6778,7 +6800,7 @@ packages:
     dev: true
 
   /prettier/2.5.1:
-    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==, tarball: prettier/download/prettier-2.5.1.tgz}
+    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     requiresBuild: true
@@ -7824,7 +7846,7 @@ packages:
     dev: true
 
   /supports-color/5.5.0:
-    resolution: {integrity: sha1-4uaaRKyHcveKHsCzW2id9lMO/I8=, tarball: supports-color/download/supports-color-5.5.0.tgz}
+    resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
     engines: {node: '>=4'}
     dependencies:
       has-flag: 3.0.0
@@ -7838,7 +7860,7 @@ packages:
     dev: true
 
   /supports-color/7.2.0:
-    resolution: {integrity: sha1-G33NyzK4E4gBs+R4umpRyqiWSNo=, tarball: supports-color/download/supports-color-7.2.0.tgz}
+    resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
     engines: {node: '>=8'}
     dependencies:
       has-flag: 4.0.0
@@ -8384,7 +8406,7 @@ packages:
     dev: true
 
   /vue-loader/16.8.3_webpack@4.46.0:
-    resolution: {integrity: sha512-7vKN45IxsKxe5GcVCbc2qFU5aWzyiLrYJyUuMz4BQLKctCj/fmCa0w6fGiiQ2cLFetNcek1ppGJQDCup0c1hpA==, tarball: vue-loader/download/vue-loader-16.8.3.tgz}
+    resolution: {integrity: sha512-7vKN45IxsKxe5GcVCbc2qFU5aWzyiLrYJyUuMz4BQLKctCj/fmCa0w6fGiiQ2cLFetNcek1ppGJQDCup0c1hpA==}
     requiresBuild: true
     peerDependencies:
       webpack: ^4.1.0 || ^5.0.0-0
@@ -8419,7 +8441,7 @@ packages:
     dev: false
 
   /watchpack-chokidar2/2.0.1:
-    resolution: {integrity: sha1-OFAAcu5uzmbzdpk2lQ6hdxvhyVc=, tarball: watchpack-chokidar2/download/watchpack-chokidar2-2.0.1.tgz}
+    resolution: {integrity: sha512-nCFfBIPKr5Sh61s4LPpy1Wtfi0HE8isJ3d2Yb5/Ppw2P2B/3eVSEBjKfN0fmHJSK14+31KwMKmcrzs2GM4P0Ww==}
     requiresBuild: true
     dependencies:
       chokidar: 2.1.8

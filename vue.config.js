@@ -1,6 +1,26 @@
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
+const MonacoWebpackPlugin = require('monaco-editor-esm-webpack-plugin');
 
 module.exports = {
+  configureWebpack:{
+  module: {
+    /**
+     * @description: 汉化 Monaco 右键菜单
+     * @doc: https://blog.csdn.net/m0_37986789/article/details/121135519
+     * @topo: 汉化放出下列注释
+     */
+    rules: [
+      {
+        test: /\.js/,
+        enforce: 'pre',
+        include: /node_modules[\\\/]monaco-editor[\\\/]esm/,
+        use: MonacoWebpackPlugin.loader,
+      },
+    ]
+  },
+    plugins: [
+      new MonacoWebpackPlugin()
+    ]
+  },
   chainWebpack: config => {
     config.plugin('monaco-editor').use(MonacoWebpackPlugin, [
       {

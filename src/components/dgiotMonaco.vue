@@ -17,7 +17,10 @@
 </template>
 
 <script>
-import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
+import { setLocaleData } from 'monaco-editor-nls';
+import zh_CN from 'monaco-editor-nls/locale/zh-hans';
+setLocaleData(zh_CN);
+const monaco = require("monaco-editor/esm/vs/editor/editor.api");
 import EditorToolbar from "./toolbar";
 export default {
   name: "dgiotMonaco",
