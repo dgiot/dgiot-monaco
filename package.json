@@ -2,7 +2,7 @@
   "name": "@dgiot/dgiot-monaco",
   "author": "dgiot",
   "license": "ISC",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "@dgiot/dgiot-monaco 是基于 Monaco editor 开发的简易版 web 端代码编辑器 Vue 组件。",
   "private": false,
   "main": "src/index.js",

@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import { setLocaleData } from 'monaco-editor-nls';
-import zh_CN from 'monaco-editor-nls/locale/zh-hans';
+import { setLocaleData } from "monaco-editor-nls";
+import zh_CN from "monaco-editor-nls/locale/zh-hans";
 setLocaleData(zh_CN);
 const monaco = require("monaco-editor/esm/vs/editor/editor.api");
 import EditorToolbar from "./toolbar";
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       editor: null,
-      languageVal: "", 
+      languageVal: "",
     };
   },
   props: {
@@ -73,23 +73,93 @@ export default {
     languageModal: {
       type: Array,
       default: () => [
-        "javascript",
-        "typescript",
-        "html",
+        "abap",
+        "aes",
+        "apex",
+        "azcli",
+        "bat",
+        "bicep",
+        "c",
+        "cameligo",
+        "clojure",
+        "coffeescript",
+        "cpp",
+        "csharp",
+        "csp",
         "css",
-        "less",
-        "scss",
-        "json",
-        "markdown",
-        "java",
-        "shell",
-        "mysql",
-        "php",
-        "redis",
-        "python",
-        "sql",
-        "xml",
+        "dart",
+        "dockerfile",
+        "ecl",
+        "elixir",
+        "flow9",
+        "freemarker2",
+        "freemarker2.tag-angle.interpolation-bracket",
+        "freemarker2.tag-angle.interpolation-dollar",
+        "freemarker2.tag-auto.interpolation-bracket",
+        "freemarker2.tag-auto.interpolation-dollar",
+        "freemarker2.tag-bracket.interpolation-bracket",
+        "freemarker2.tag-bracket.interpolation-dollar",
+        "fsharp",
         "go",
+        "graphql",
+        "handlebars",
+        "hcl",
+        "html",
+        "ini",
+        "java",
+        "javascript",
+        "json",
+        "julia",
+        "kotlin",
+        "less",
+        "lexon",
+        "liquid",
+        "lua",
+        "m3",
+        "markdown",
+        "mips",
+        "msdax",
+        "mysql",
+        "objective-c",
+        "pascal",
+        "pascaligo",
+        "perl",
+        "pgsql",
+        "php",
+        "pla",
+        "plaintext",
+        "postiats",
+        "powerquery",
+        "powershell",
+        "proto",
+        "pug",
+        "python",
+        "qsharp",
+        "r",
+        "razor",
+        "redis",
+        "redshift",
+        "restructuredtext",
+        "ruby",
+        "rust",
+        "sb",
+        "scala",
+        "scheme",
+        "scss",
+        "shell",
+        "sol",
+        "sparql",
+        "sql",
+        "st",
+        "swift",
+        "systemverilog",
+        "tcl",
+        "twig",
+        "typescript",
+        "vb",
+        "verilog",
+        "xml",
+        "yaml",
       ],
     },
     theme: { type: String, default: "vs-dark" },
@@ -168,65 +238,57 @@ export default {
       } else monaco.editor.setModelLanguage(this.editor.getModel(), val);
     },
     handleToolClick({ type, value }) {
-      console.log(type, value);
-      // console.log(type, value);
-      switch(type)
-      {
-        case 'undo':
+      switch (type) {
+        case "undo":
           //上一步
           this.editor.trigger("anyString", "undo");
           break;
-        case 'repeat':
+        case "repeat":
           //下一步
           this.editor.trigger("anyString", "redo");
           break;
-        case 'search':
-            //检索
-          //   // this.editor.trigger("anyString", "editor.action.selectAll");
-            this.editor.trigger("anyString", "actions.find");
+        case "search":
+          //检索
+          this.editor.trigger("anyString", "actions.find");
           break;
-        case 'formatDocument':
+        case "formatDocument":
           //代码美化
-            this.editor.trigger("anyString", "editor.action.formatDocument");
+          this.editor.trigger("anyString", "editor.action.formatDocument");
           break;
-        case 'size':
-            //编辑器字体
-            this.options.fontSize = value;
+        case "size":
+          //编辑器字体
+          this.options.fontSize = value;
           break;
-        case 'theme':
-//编辑器主题
-          //   this.handleTheme(value);
+        case "theme":
+          //编辑器主题
+          this.handleTheme(value);
           break;
-        case 'language':
-//语言
-            this.handlerLanguage(value);
+        case "language":
+          //语言
+          this.handlerLanguage(value);
           break;
-        case 'trash':
-//清空
+        case "trash":
+          //清空
           this.handleValue("");
           break;
-        case 'save':
+        case "save":
           // 保存
           this.$emit("on-save", this.editor.getValue());
           break;
-        case 'wrap':
-          //代码换行
-          //   this.options.wordWrap = !this.options.wordWrap;
+        case "wrap":
+            this.options.wordWrap = !this.options.wordWrap;
           break;
-        case 'number':
-          //行号显隐
-          //   this.options.lineNumbers = !this.options.lineNumbers;
+        case "number":
+            this.options.lineNumbers = !this.options.lineNumbers;
           break;
-        case 'random':
-          //跳转到行
-            this.editor.trigger("anyString", "editor.action.gotoLine");
+        case "random":
+          this.editor.trigger("anyString", "editor.action.gotoLine");
           break;
-        case 'save':
-          //format
-          //   this.editor.trigger("anyString", "editor.action.formatDocument");
+        case "format":
+          this.editor.trigger("anyString", "editor.action.formatDocument");
           break;
         default:
-          console.log(type)
+          console.log(type);
       }
       // if (type === "undo") {
       //   //上一步
@@ -278,15 +340,14 @@ export default {
       this.languageVal = this.language;
       // console.log(this._editorBeforeMount());
       // Object.assign(options, this._editorBeforeMount()); //编辑器初始化前
-      this.editor = monaco.editor[this.diffEditor ? "createDiffEditor" : "create"](
-        this.$refs.container,
-        {
-          value: this.content,
-          language: this.language,
-          theme: this.theme,
-          ...this.options,
-        }
-      );
+      this.editor = monaco.editor[
+        this.diffEditor ? "createDiffEditor" : "create"
+      ](this.$refs.container, {
+        value: this.content,
+        language: this.language,
+        theme: this.theme,
+        ...this.options,
+      });
       this.diffEditor && this._setModel(this.content, this.original);
       this._editorMounted(this.editor); //编辑器初始化后
     },
